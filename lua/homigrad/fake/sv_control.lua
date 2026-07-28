@@ -139,11 +139,11 @@ local player_GetHumans = player.GetHumans
 hook.Add("Think", "Fake", function()
 	hg.humans_cached = player_GetHumans()
 
-	//for ply, ragdoll in pairs(hg.ragdollFake) do
+	--for ply, ragdoll in pairs(hg.ragdollFake) do
 	for i, ply in player.Iterator() do
-		local ragdoll = hg.ragdollFake[ply]//ply.FakeRagdoll
+		local ragdoll = hg.ragdollFake[ply]--ply.FakeRagdoll
 		if not IsValid(ragdoll) then
-			//hg.ragdollFake[ply] = nil
+			--hg.ragdollFake[ply] = nil
 			continue
 		end
 
@@ -162,7 +162,7 @@ hook.Add("Think", "Fake", function()
 
 		if hook_Run("CanControlFake", ply, ragdoll) ~= nil then
 			ply.lastFake = 0
-			//ply:SetNetVar("lastFake",0)
+			--ply:SetNetVar("lastFake",0)
 			continue
 		end
 
@@ -359,9 +359,9 @@ hook.Add("Think", "Fake", function()
 		
 		if not wep.RagdollFunc then
 			local force = math.max(1 - org.larm / 1.3, 0)
-			if !IsValid(ragdoll.ConsLH) and (ply:KeyDown(IN_ATTACK) and !ishgweapon(wep)) or (((ishgweapon(wep) and (!wep:IsResting() or ply:KeyDown(IN_FORWARD) or ply:KeyDown(IN_BACK))) or wep.ismelee2) and (ply:KeyDown(IN_USE) or ply:KeyDown(IN_ATTACK2))) then// || ply:InVehicle() then
+			if !IsValid(ragdoll.ConsLH) and (ply:KeyDown(IN_ATTACK) and !ishgweapon(wep)) or (((ishgweapon(wep) and (!wep:IsResting() or ply:KeyDown(IN_FORWARD) or ply:KeyDown(IN_BACK))) or wep.ismelee2) and (ply:KeyDown(IN_USE) or ply:KeyDown(IN_ATTACK2))) then-- || ply:InVehicle() then
 				if org.canmove then
-					//if !ply:InVehicle() then
+					--if !ply:InVehicle() then
 						ang2:Set(angles)
 						local lower = (ishgweapon(wep) and (ply:KeyDown(IN_USE) or ply:KeyDown(IN_ATTACK2)))
 						ang2:RotateAroundAxis(angles:Right(), lower and -20 or 0)
@@ -474,19 +474,19 @@ hook.Add("Think", "Fake", function()
 
 			local force = math.max(1 - org.rarm / 1.3, 0)
 
-			if !IsValid(ragdoll.ConsRH) and ply:KeyDown(IN_ATTACK2) or ((ishgweapon(wep) or wep.ismelee2) and ply:KeyDown(IN_USE)) then// || ply:InVehicle() then
+			if !IsValid(ragdoll.ConsRH) and ply:KeyDown(IN_ATTACK2) or ((ishgweapon(wep) or wep.ismelee2) and ply:KeyDown(IN_USE)) then-- || ply:InVehicle() then
 				if org.canmove then
 					--if org.shock > 1 and not ply:KeyDown(IN_ATTACK2) then angles = spine:GetAngles() end
-					//if !ply:InVehicle() then
+					--if !ply:InVehicle() then
 						ang2:Set(angles)
 						ang2:RotateAroundAxis(angles:Up(), ishgweapon(wep) and -10 or 0)
 						ang2:RotateAroundAxis(angles:Right(), ishgweapon(wep) and 10 or 0)
 						ang2:RotateAroundAxis(angles:Forward(), -90)
 
-						//if !ishgweapon(wep) then
+						--if !ishgweapon(wep) then
 							shadowControl(ragdoll, 2, 0.001, ang2, forceArm * force, forceArm_dump)
 							shadowControl(ragdoll, 6, 0.001, ang2, forceArm * force, forceArm_dump)
-						//end
+						--end
 
 						ang2:RotateAroundAxis(ang2:Forward(), 135)
 						ang2:RotateAroundAxis(ang2:Up(), ishgweapon(wep) and 1 or 20)
@@ -841,7 +841,7 @@ hook.Add("Think", "Fake", function()
 					angle:RotateAroundAxis(angle:Up(), -30)
 				end
 
-				//if vellen < 200 then
+				--if vellen < 200 then
 				if !ply:KeyDown(IN_ATTACK2) or ishgweapon(wep) then
 					angle:RotateAroundAxis(angle:Up(), 90)
 				end
@@ -864,8 +864,8 @@ hook.Add("Think", "Fake", function()
 				if org.lleg >= 1 or org.rleg >= 1 then
 					org.painadd = org.painadd + ragdoll.dtime * 2 * (org.lleg + org.rleg)
 				end
-				//rleg:ApplyForceCenter(force)
-				//lleg:ApplyForceCenter(force)
+				--rleg:ApplyForceCenter(force)
+				--lleg:ApplyForceCenter(force)
 			end
 		end
 		local vel = ragdoll:GetVelocity()
@@ -915,8 +915,8 @@ hook.Add("Think", "Fake", function()
 				local head = ragdoll:GetPhysicsObject(ragdoll:TranslateBoneToPhysBone(ragdoll:LookupBone("ValveBiped.Bip01_Head1")))
 				local angle = spine:GetAngles()
 
-				//shadowControl(ragdoll, 13, 0.001, angle, 0, 0, spine:GetPos() + head:GetAngles():Forward() * 10, 5050, 100)
-				//shadowControl(ragdoll, 14, 0.001, angle, 0, 0, spine:GetPos() + head:GetAngles():Forward() * 10, 5050, 100)
+				--shadowControl(ragdoll, 13, 0.001, angle, 0, 0, spine:GetPos() + head:GetAngles():Forward() * 10, 5050, 100)
+				--shadowControl(ragdoll, 14, 0.001, angle, 0, 0, spine:GetPos() + head:GetAngles():Forward() * 10, 5050, 100)
 
 				local rleg = ragdoll:GetPhysicsObject(realPhysNum(ragdoll, 13))
 				local lleg = ragdoll:GetPhysicsObject(realPhysNum(ragdoll, 14))

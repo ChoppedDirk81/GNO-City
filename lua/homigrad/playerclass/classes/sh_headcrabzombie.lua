@@ -518,8 +518,8 @@ else
 		if lply.PlayerClassName == "headcrabzombie" and lply:Alive() and GetViewEntity() == lply then
 			render.UpdateScreenEffectTexture()
 
-			zombMat_Add:SetFloat("$c0_x", -CurTime() * 0.1) //time
-			zombMat_Add:SetFloat("$c0_y", 0.1) //intensity (strict)
+			zombMat_Add:SetFloat("$c0_x", -CurTime() * 0.1) --time
+			zombMat_Add:SetFloat("$c0_y", 0.1) --intensity (strict)
 			zombMat_Add:SetFloat("$c2_x", 2)
 
 			render.SetMaterial(zombMat_Add)

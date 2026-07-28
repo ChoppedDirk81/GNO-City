@@ -28,7 +28,7 @@ local IsValid, math_Clamp = IsValid, math.Clamp
 
 				if i == ent:LookupBone("ValveBiped.Bip01_Head1") and lply == GetViewEntity() and lply == ply then
 					newmat:SetScale(vecSmall)
-					//ply.headm = newmat
+					--ply.headm = newmat
 				end
 
 				ent:SetBoneMatrix(i, newmat)
@@ -56,7 +56,7 @@ local IsValid, math_Clamp = IsValid, math.Clamp
 
 	function DrawPlayerRagdoll(ent, ply) --// actually not only ragdoll render but player too
 		if ply.prevragdoll_index != nil and ply.prevragdoll_index != ply.ragdoll_index and ply.ragdoll_index == 0 then
-			//print(ply.ragdoll_index, ply.prevragdoll_index, Entity(ply.ragdoll_index))
+			--print(ply.ragdoll_index, ply.prevragdoll_index, Entity(ply.ragdoll_index))
 
 			ply.gettingup = CurTime()
 			ply.OldRagdoll = Entity(ply.prevragdoll_index)
@@ -86,8 +86,8 @@ local IsValid, math_Clamp = IsValid, math.Clamp
 		if ply:GetNetVar("handcuffed", false) then hg.CuffedAnim(ent, ply) end
 
 		if IsValid(wep) then
-			//if wep.isTPIKBase then hg.RenderTPIKBase(ent, ply, wep) end
-			//if wep.ismelee then hg.RenderMelees(ent, ply, wep) end
+			--if wep.isTPIKBase then hg.RenderTPIKBase(ent, ply, wep) end
+			--if wep.ismelee then hg.RenderMelees(ent, ply, wep) end
 			if wep.DrawWorldModel2 then wep:DrawWorldModel2() end
 		end
 

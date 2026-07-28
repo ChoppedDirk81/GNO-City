@@ -261,9 +261,9 @@ local Angle, Vector, AngleRand, VectorRand, math, hook, util, game = Angle, Vect
 			vel2 = 1
 		end
 
-		local change = math.abs(math.AngleDifference(calc_vector2d_angle(ply.LastVelocity), calc_vector2d_angle(vel))) // * (SERVER and 0 or 5)
+		local change = math.abs(math.AngleDifference(calc_vector2d_angle(ply.LastVelocity), calc_vector2d_angle(vel))) -- * (SERVER and 0 or 5)
 
-		if ply.LastVelocity == vel and ply.LastChangeVelocity then // this is so bullshit but it works
+		if ply.LastVelocity == vel and ply.LastChangeVelocity then -- this is so bullshit but it works
 			change = ply.LastChangeVelocity
 		end
 
@@ -337,19 +337,19 @@ local Angle, Vector, AngleRand, VectorRand, math, hook, util, game = Angle, Vect
 
 			local consmul = math.Clamp(((consciousness - 1) * 4 + 1), 0.1, 1)
 
-			//if(water_level > 0)then
-			//	ply.CurrentFrictionMul = math.Approach(ply.CurrentFrictionMul, 0.2, delta_time * ply.FrictionLoseMul * water_level)
-			//else
-				// ply.CurrentFrictionMul = math.Approach(ply.CurrentFrictionMul, consmul, delta_time * ply.FrictionGainMul * (consmul < ply.CurrentFrictionMul and 100 or 10))
-			//end
+			--if(water_level > 0)then
+			--	ply.CurrentFrictionMul = math.Approach(ply.CurrentFrictionMul, 0.2, delta_time * ply.FrictionLoseMul * water_level)
+			--else
+				-- ply.CurrentFrictionMul = math.Approach(ply.CurrentFrictionMul, consmul, delta_time * ply.FrictionGainMul * (consmul < ply.CurrentFrictionMul and 100 or 10))
+			--end
 
 			ply.CurrentFrictionMul = 0.5 / hg_inertiamul:GetFloat()
 			ply.InertiaBlend = ply.InertiaBlend * ply.CurrentFrictionMul
 
 			-- local new_inertia = LerpVector(0.5^(delta_time * ply.InertiaBlend), ply.MovementInertia, inertia_to)
 			-- local new_inertia = LerpVector(1 - 0.5^(delta_time * ply.InertiaBlend), ply.MovementInertia, inertia_to)
-			//local new_inertia = approach_vector(ply.MovementInertia, inertia_to, 1000)//SERVER and delta_time * ply.InertiaBlend * ply:Ping() / 100 or delta_time * ply.InertiaBlend)
-			//local new_inertia = approach_vector_smooth(ply.MovementInertia, inertia_to, hg.lerpFrameTime2(0.075, delta_time))
+			--local new_inertia = approach_vector(ply.MovementInertia, inertia_to, 1000)--SERVER and delta_time * ply.InertiaBlend * ply:Ping() / 100 or delta_time * ply.InertiaBlend)
+			--local new_inertia = approach_vector_smooth(ply.MovementInertia, inertia_to, hg.lerpFrameTime2(0.075, delta_time))
 			if !ply:OnGround() then
 				ply.MovementInertia = ply.LastVelocity	
 			end
@@ -389,13 +389,13 @@ local Angle, Vector, AngleRand, VectorRand, math, hook, util, game = Angle, Vect
 		k = k * (org.pelvis == 1 and 0.4 or 1)
 		k = k * ((IsValid(ply:GetNetVar("carryent")) or IsValid(ply:GetNetVar("carryent2"))) and math.Clamp(50 / math.max(ply:GetNetVar("carrymass", 0) + ply:GetNetVar("carrymass2", 0), 1), 0.5, 1) or 1)
 		k = k * math.Clamp(20 / ((org.pain or 0) + 1), 0.01, 1)
-		//k = k * (ishgweapon(wep) and not wep:IsPistolHoldType() and not wep:ReadyStance() and 0.75 or 1)
+		--k = k * (ishgweapon(wep) and not wep:IsPistolHoldType() and not wep:ReadyStance() and 0.75 or 1)
 
 		local slwdwn = ply:GetNetVar("slowDown", 0)
 		if(slwdwn > 0)then
-			//if(SERVER)then
-				//ply:SetNetVar("slowDown", math.Approach(slwdwn, 0, delta_time * 250))
-			//end
+			--if(SERVER)then
+				--ply:SetNetVar("slowDown", math.Approach(slwdwn, 0, delta_time * 250))
+			--end
 			k = k * math.Clamp((250 - slwdwn) / 250, 0.75, 1)
 		end
 

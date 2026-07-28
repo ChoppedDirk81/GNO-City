@@ -35,7 +35,7 @@ function zb.GetMapPoints( pointGroup, forceupdatepoints ) -- Загрузить 
     return newTbl
 end--undebiled this function no need to thank me
 
--- pointsData = zb.Points[pointGroup].Points  // Таблица пойнтов
+-- pointsData = zb.Points[pointGroup].Points  -- Таблица пойнтов
 function zb.SaveMapPoints( pointGroup, pointsData ) -- Сохранаяет все точки в группе
     if not zb.CreateMapDir() then PrintMessage( HUD_PRINTTALK, "sv_points.lua: map folder dosen't exists?" ) return false end
     if not zb.Points[pointGroup] then PrintMessage( HUD_PRINTTALK, "sv_points.lua: point group " .. "\"" .. pointGroup .. "\"" .. " doesn't exist." ) return false end
@@ -45,7 +45,7 @@ function zb.SaveMapPoints( pointGroup, pointsData ) -- Сохранаяет вс
     file.Write( "zbattle/mappoints/" .. map .. "/" .. pointGroup .. ".json", util.TableToJSON( pointsData, true ) )
 end
 
--- pointData = { pos = Vector(), ang = Angle() } // Таблица пойнта
+-- pointData = { pos = Vector(), ang = Angle() } -- Таблица пойнта
 function zb.CreateMapPoint( pointGroup, pointData, needsave ) -- Создать точку на карте, и сохранить ли ее?
     if not zb.CreateMapDir() then PrintMessage( HUD_PRINTTALK, "sv_points.lua: map folder dosen't exists?" ) return false end
     if not zb.Points[pointGroup] then PrintMessage( HUD_PRINTTALK, "sv_points.lua: point group " .. "\"" .. pointGroup .. "\"" .. " doesn't exist." ) return false end
@@ -111,11 +111,11 @@ hook.Add("InitPostEntity", "inithuyOwOs", function()
     zb.GetAllPoints(true)
 end)
 
-//zb.GetAllPoints()
+--zb.GetAllPoints()
 
 hook.Add( "Initialize", "LoadMapPoints", zb.CreateMapDir )
 --PrintTable(zb.Points.Example.Points)
--- pointData = { pos = Vector(), ang = Angle() } // Таблица пойнта
+-- pointData = { pos = Vector(), ang = Angle() } -- Таблица пойнта
 COMMANDS.pointnew = {function(ply,args)
     if not args[1] then
         ply:ChatPrint("Usage: !pointnew <pointGroup>")

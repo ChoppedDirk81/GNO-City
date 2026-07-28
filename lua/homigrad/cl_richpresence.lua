@@ -24,7 +24,7 @@ function StartDiscordPresence(arguments)
             rpc_data["state"] = string.Replace(ip, ":27015", "")
 
             rpc_data["buttonPrimaryLabel"] = "Join Server"
-            rpc_data["buttonPrimaryUrl"] = "steam://connect/" .. ip]]
+            rpc_data["buttonPrimaryUrl"] = "steam:--connect/" .. ip]]
 		end
 
 		rpc_data["partySize"] = player.GetCount()

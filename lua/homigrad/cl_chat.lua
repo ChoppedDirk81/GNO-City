@@ -1,4 +1,4 @@
-// v7 privet
+-- v7 privet
 local hook_Run = hook.Run
 hook.Add( "OnPlayerChat", "HGPlayerChat", function( ply, strText, bTeam, bDead, bWhisper ) 
 	if bWhisper == nil then return true end

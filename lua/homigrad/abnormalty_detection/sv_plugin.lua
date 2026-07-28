@@ -18,11 +18,11 @@ util.AddNetworkString("Abnormalties(SendOpenedPage)")
 		PLUGIN.HotZones = PLUGIN.HotZones or {}
 		PLUGIN.ConsequencesMul = 1
 		PLUGIN.ConsequencesMulBeforeHot = 0.2
-	--=//
+	--==//
 
 	--=\\SQL
 		-- PLUGIN.SQLSaveCD
-	--=//
+	--==//
 --//
 
 --\\SQL
@@ -540,7 +540,7 @@ util.AddNetworkString("Abnormalties(SendOpenedPage)")
 				end
 			end
 		end)
-	--=//
+	--==//
 --//
 
 --\\??
@@ -905,7 +905,7 @@ util.AddNetworkString("Abnormalties(SendOpenedPage)")
 			
 			return abnormalty, uselessness
 		end
-	--=//
+	--==//
 	
 	--=\\Testing
 		--[[
@@ -1014,7 +1014,7 @@ util.AddNetworkString("Abnormalties(SendOpenedPage)")
 				PLUGIN.AddPhraseAbnormaltyToZone(zone, abnormalty_name, amt)
 			end
 		end)
-	--=//
+	--==//
 
 	function PLUGIN.RandomizeCharInfos()
 		PLUGIN.Randomized = true

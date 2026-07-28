@@ -154,10 +154,10 @@ For people who like to play checkers.]],
 			
 			ply.organism.recoilmul = 0.8
 			ply.organism.stamina.max = 300
-			--local inv = ply:GetNetVar("Inventory", {}) // WHY SOMEONE COMMENTED THIS
+			--local inv = ply:GetNetVar("Inventory", {}) -- WHY SOMEONE COMMENTED THIS
 			--inv["Weapons"]["hg_flashlight"] = true
 			
-			--ply:SetNetVar("Inventory", inv) // BUT NOT THIS???
+			--ply:SetNetVar("Inventory", inv) -- BUT NOT THIS???
 		end,
 	},
 	["traitor_assasin_soe"] = {
@@ -179,10 +179,10 @@ For people who like to play checkers.]],
 			
 			ply.organism.recoilmul = 0.4
 			ply.organism.stamina.max = 300
-			--local inv = ply:GetNetVar("Inventory", {}) // WHY SOMEONE COMMENTED THIS
+			--local inv = ply:GetNetVar("Inventory", {}) -- WHY SOMEONE COMMENTED THIS
 			--inv["Weapons"]["hg_flashlight"] = true
 			
-			--ply:SetNetVar("Inventory", inv) // BUT NOT THIS???
+			--ply:SetNetVar("Inventory", inv) -- BUT NOT THIS???
 		end,
 	},
 	--==//
@@ -254,7 +254,7 @@ Despite being zombie, still bears appearance of a normal human.]],
 			-- ply:SetNetVar("Inventory", inv)
 		end,
 	},
-	--=//
+	--==//
 }
 --//
 

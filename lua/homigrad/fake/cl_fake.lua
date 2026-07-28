@@ -362,7 +362,7 @@ CalcView = function(ply, origin, angles, fov, znear, zfar)
 	end
 	
 	view.angles:Add(ply:GetViewPunchAngles())
-	//view.origin, view.angles = HGAddView(lply, view.origin, view.angles, 0)
+	--view.origin, view.angles = HGAddView(lply, view.origin, view.angles, 0)
 
 	view.angles:Add(-vpang)
 	view.angles[3] = view.angles[3] + GetViewPunchAngles4()[3]
@@ -374,10 +374,10 @@ CalcView = function(ply, origin, angles, fov, znear, zfar)
 	if ply.gettingup and (ply.gettingup + 1 - CurTime()) > 0 then
 		local k = 1 - (ply.gettingup + 1 - CurTime())
 		local k2 = math.max(k - 0.5, 0) * 2
-		//view.origin = LerpVector(k2, view.origin, oldorigin)
+		--view.origin = LerpVector(k2, view.origin, oldorigin)
 		view.angles = LerpAngle(k2, view.angles, oldangles)
 	end
-	//view.angles = angles
+	--view.angles = angles
 
 	view = hook.Run("Camera", ply, view.origin, view.angles, view, vector_origin) or view
 	
@@ -512,9 +512,9 @@ hook.Add("RagdollEntityCreated", "RagdollFinder", function(ply, ent, key)
 
 		if follow and hg.IsChanged(follow,1,tblfollow) then
 			if IsValid(tblfollow[1]) then
-				//tblfollow[1]:ManipulateBoneScale(tblfollow[1]:LookupBone("ValveBiped.Bip01_Head1"),vecFull)
+				--tblfollow[1]:ManipulateBoneScale(tblfollow[1]:LookupBone("ValveBiped.Bip01_Head1"),vecFull)
 			elseif IsValid(follow) and not follow:GetManipulateBoneScale(follow:LookupBone("ValveBiped.Bip01_Head1")):IsEqualTol(vecZero,0.001) then
-				//follow:ManipulateBoneScale(follow:LookupBone("ValveBiped.Bip01_Head1"),vecPochtiZero)
+				--follow:ManipulateBoneScale(follow:LookupBone("ValveBiped.Bip01_Head1"),vecPochtiZero)
 			end
 
 			tblfollow[1] = follow
@@ -532,7 +532,7 @@ hook.Add("RagdollEntityCreated", "RagdollFinder", function(ply, ent, key)
 			hook.Run("RagdollRemove",ply,ragdoll)
 		end)
 
-		//ply.FakeRagdollOld = nil
+		--ply.FakeRagdollOld = nil
 
 		ply.FakeRagdoll = ragdoll
 		hook_Run("Fake", ply, ragdoll)
@@ -545,7 +545,7 @@ hook.Add("RagdollEntityCreated", "RagdollFinder", function(ply, ent, key)
 		ply:SetRenderMode(RENDERMODE_NORMAL)
 		
 		oldrag.ply = nil
-		//ply.FakeRagdollOld = oldrag
+		--ply.FakeRagdollOld = oldrag
 
 		ply.FakeRagdoll = nil
 
@@ -662,7 +662,7 @@ hook.Add("Player_Death", "Fake", function(ply)
 	hg.override[ply] = nil
 
 	-- timer.Simple(0.5 * math.max(ply:Ping() / 30,1),function()
-	-- 	//ply:BoneScaleChange()
+	-- 	--ply:BoneScaleChange()
 	-- end)
 end)
 

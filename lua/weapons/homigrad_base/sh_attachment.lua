@@ -140,7 +140,7 @@ local hg_attachment_draw_distance = ConVarExists("hg_attachment_draw_distance") 
 function SWEP:DrawAttachments()
 	local owner = self:GetOwner()
 	self.attacments = self:GetNetVar("attachments",{})
-	//self.Supressor = (self:HasAttachment("barrel", "supressor") and true) or self.SetSupressor
+	--self.Supressor = (self:HasAttachment("barrel", "supressor") and true) or self.SetSupressor
 	local magwell, magwellData = self:HasAttachment("magwell")
 	if magwellData then 
 		self.Primary.ClipSize = magwellData.capacity
@@ -367,7 +367,7 @@ function SWEP:Attachment_Transform(model,pos,ang,plc,att,attdata,available)
 
 		model2:SetupBones()
 		model2:SetModelScale(attdata.modelscale or 1)
-		//model2:DrawModel()
+		--model2:DrawModel()
 	end
 end
 
@@ -453,9 +453,9 @@ if CLIENT then
 		if not IsValid(model) then return end
 		local pos, anga = model:GetPos(), model:GetAngles()
 		local pos, ang = LocalToWorld(attachmentData.offsetPos or vecZero, attachmentData.offsetAng or angZero, pos, anga)
-		//local tr, _, _ = self:GetTrace()
+		--local tr, _, _ = self:GetTrace()
 		
-		//if not IsValid(self:GetOwner()) or not self:GetOwner():IsPlayer() then ang = anga end
+		--if not IsValid(self:GetOwner()) or not self:GetOwner():IsPlayer() then ang = anga end
 
 		--[[
 			if not IsValid(lply.EZNVGlamp) then
@@ -785,7 +785,7 @@ if CLIENT then
 		end
 
 		scroll.Think = function()
-			//tblcpy = refreshtbl()
+			--tblcpy = refreshtbl()
 		end
 
 		function frame:RefreshTbl()

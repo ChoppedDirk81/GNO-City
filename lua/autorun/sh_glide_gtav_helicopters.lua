@@ -26,8 +26,8 @@ hook.Add( "InitPostEntity", "GTAVHelicopters.GlideCheck", function()
 
     timer.Simple( 5, function()
 
-        local BASE_ADDON_NAME = "Glide // Styled's Vehicle Base"
-        local SUB_ADDON_NAME = "Glide // GTAV: Helicopters"
+        local BASE_ADDON_NAME = "Glide -- Styled's Vehicle Base"
+        local SUB_ADDON_NAME = "Glide -- GTAV: Helicopters"
 
         local colorHighlight = Color( 255, 0, 0 )
         local colorText = Color( 255, 200, 200 )

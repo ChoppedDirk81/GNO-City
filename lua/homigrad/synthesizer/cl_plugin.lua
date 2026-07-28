@@ -157,7 +157,7 @@ end
 			
 			return sample_val
 		end
-	--=//
+	--==//
 
 	vocal_funcs["sin"] = function(args, val, current_frequency, work_table)
 		local iters, trebble, len = math.Round(args.Pitch), args.Trebble or 1, args.Length or 1

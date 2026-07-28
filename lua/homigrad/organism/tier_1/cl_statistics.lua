@@ -171,8 +171,8 @@ local list = {
 	{"rleg", 1, true}, 
 	{"larm", 1, true}, 
 	{"rarm", 1, true},
-	//"recoilmul",
-	//"meleespeed",
+	--"recoilmul",
+	--"meleespeed",
 }
 local function LerpColor(lerp, source, set)
 	return Lerp(lerp, source.r, set.r), Lerp(lerp, source.g, set.g), Lerp(lerp, source.b, set.b)
@@ -719,7 +719,7 @@ hook.Add("HUDPaint","homigrad-wound-debug",function()
 					surface.SetDrawColor(155,0,0,15)
 					surface.DrawTexturedRect(0,0,ScrW(),ScrH(),0)
 				cam.End2D()
-				--skiletmodel:DrawModel() // надо доделать, когда разберусь в стенсилах // а все уже, работает
+				--skiletmodel:DrawModel() -- надо доделать, когда разберусь в стенсилах -- а все уже, работает
 				cam.Start2D()
 					surface.SetDrawColor(155,0,0,95)
 					surface.DrawTexturedRect(0,0,ScrW(),ScrH(),0)

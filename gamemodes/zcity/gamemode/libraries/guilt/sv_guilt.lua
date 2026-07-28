@@ -1,4 +1,4 @@
--- СДЕЛАЙТЕ СИНХРУ С СКУЭЛЬ УЖЕ // ЛАДНО Я САМ СДЕЛАЮ
+-- СДЕЛАЙТЕ СИНХРУ С СКУЭЛЬ УЖЕ -- ЛАДНО Я САМ СДЕЛАЮ
 zb = zb or {}
 
 zb.GuiltTable = zb.GuiltTable or {}
@@ -172,7 +172,7 @@ hook.Add("HomigradDamage", "GuiltReg", function(ply, dmgInfo, hitgroup, ent, har
     hook.Run("HarmDone", Attacker, Victim, amt)
 
     if newharm >= maxharm and oldharmdone < newharm then
-        //Attacker:AddFrags(1) -- better make it a system that counts kills and gives frags at the end of the round
+        --Attacker:AddFrags(1) -- better make it a system that counts kills and gives frags at the end of the round
     end
 
     Victim = hg.GetCurrentCharacter(Victim) or Victim
@@ -200,7 +200,7 @@ hook.Add("HomigradDamage", "GuiltReg", function(ply, dmgInfo, hitgroup, ent, har
     local victimWep = Victim:IsPlayer() and IsValid(Victim:GetActiveWeapon()) and Victim:GetActiveWeapon()
     
     if newharm >= maxharm and oldharmdone < newharm then
-        //Attacker:AddFrags(-1)
+        --Attacker:AddFrags(-1)
     end
     
     amt = amt * 1
@@ -291,10 +291,10 @@ hook.Add("Player Spawn","SlowlyRestoreKarma",function(ply)
     if OverrideSpawn then return end
 
     ply.lastwarning = nil
-    //ply.firstwarning = nil
+    --ply.firstwarning = nil
     ply.Karma = ply.Karma or 100
     ply:SetNetVar("Karma",ply.Karma)
-    //ply:guilt_SetValue( ply.Karma or 100 )
+    --ply:guilt_SetValue( ply.Karma or 100 )
     
     ply.Guilt = 0
 end)
@@ -303,10 +303,10 @@ hook.Add("Player Think", "karmagain", function(ply)
     if (ply.KarmaGainThink or 0) > CurTime() then return end
     ply.KarmaGainThink = CurTime() + 120
 
-    ply.Karma = math.Clamp(ply.Karma + (ply.Karma > 100 and 0.1 or (ply.KarmaGain or 0.75)), 0, zb.MaxKarma)// * (1 + ply:HasPurchase("zpremium")), 0, zb.MaxKarma)
+    ply.Karma = math.Clamp(ply.Karma + (ply.Karma > 100 and 0.1 or (ply.KarmaGain or 0.75)), 0, zb.MaxKarma)-- * (1 + ply:HasPurchase("zpremium")), 0, zb.MaxKarma)
     
     ply:SetNetVar("Karma", ply.Karma)
-    //ply:guilt_SetValue( ply.Karma or 100 )
+    --ply:guilt_SetValue( ply.Karma or 100 )
 end)
 
 hook.Add("Org Clear","removekarmashaking",function(org)
@@ -377,7 +377,7 @@ hook.Add("ZB_StartRound","NO_HARM",function()
             ply.KarmaGain = 0.75
         end
 
-        //ply:guilt_SetValue( ply.Karma or 100 )
+        --ply:guilt_SetValue( ply.Karma or 100 )
     end
     
     zb.HarmDone = {}
@@ -407,7 +407,7 @@ concommand.Add("hg_setkarma",function(ply,cmd,args)
 
     newply.Karma = tonumber(lenargs > 1 and args[2] or args[1])
     newply:SetNetVar("Karma",ply.Karma)
-    //newply:guilt_SetValue( ply.Karma or 100 )
+    --newply:guilt_SetValue( ply.Karma or 100 )
 end)
 
 util.AddNetworkString("open_guilt_menu")
@@ -419,7 +419,7 @@ net.Receive("open_guilt_menu",function(len, ply)
     net.Start("open_guilt_menu")
     net.WriteTable(tbl)
     net.Send(ply)
-    //current round guilt
+    --current round guilt
 end)
 
 net.Receive("forgive_player", function(len, ply)
@@ -430,7 +430,7 @@ net.Receive("forgive_player", function(len, ply)
 
     ent.Karma = math.Clamp(ent.Karma + harm, 0, zb.MaxKarma)
     ent:SetNetVar("Karma",ent.Karma)
-    //ent:guilt_SetValue((ent.Karma or 100))
+    --ent:guilt_SetValue((ent.Karma or 100))
 
     zb.HarmDone[ply][ent] = 0
     zb.HarmDoneKarma[ply][ent] = 0
