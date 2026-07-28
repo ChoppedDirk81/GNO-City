@@ -107,14 +107,14 @@ function PANEL:PostPaintPanel(w, h)
 		local y_start = 0
 		
 		surface.SetDrawColor(vgui_color_main)
-		//surface.SetTexture(tex_gradient)
+		--surface.SetTexture(tex_gradient)
 		surface.SetMaterial(mata)
 		surface.DrawTexturedRect(0, -100, w, h + 200)
 	end*/
 	if rolesmaterials[self.Role] then
-		//surface.SetDrawColor(vgui_color_main)
-		//surface.SetMaterial(rolesmaterials[self.Role])
-		//surface.DrawTexturedRect(0, -100, w, h + 200)
+		--surface.SetDrawColor(vgui_color_main)
+		--surface.SetMaterial(rolesmaterials[self.Role])
+		--surface.DrawTexturedRect(0, -100, w, h + 200)
 
 		--[[ --whatever
         render.SetStencilWriteMask(0xFF)
@@ -190,16 +190,16 @@ function PANEL:Construct()
 	button_ready:SetSkin(hg.GetMainSkin())
 	button_ready:SetText("APPLY")
 	button_ready.DoClick = function(sel)
-		//if(sel.Clicked)then
+		--if(sel.Clicked)then
 			if(IsValid(VGUI_HMCD_RolePanelList))then
 				VGUI_HMCD_RolePanelList:Remove()
 			end
-		//end
+		--end
 		
-		//sel.Clicked = true
+		--sel.Clicked = true
 		
-		//net.Start("HMCD(StartPlayersRoleSelection)")
-		//net.SendToServer()
+		--net.Start("HMCD(StartPlayersRoleSelection)")
+		--net.SendToServer()
 	end
 	button_ready.Paint = function(sel, w, h)
 		if(sel.Clicked)then

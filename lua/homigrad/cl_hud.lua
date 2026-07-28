@@ -217,7 +217,7 @@ local function CreateRadialMenu(options_arg, bAutoClose)
 		end
 	end
 
-	//hook_Run("radialOptions")
+	--hook_Run("radialOptions")
 	local options1 = options_arg or hg.radialOptions
 
 	hg.radialOptions = options1
@@ -260,7 +260,7 @@ local function CreateRadialMenu(options_arg, bAutoClose)
 			local functions = hook.GetTable()["radialOptions"]
 			
 			for i, func in SortedPairs(functions) do
-				//if i == "zmeyka_test" then continue end
+				--if i == "zmeyka_test" then continue end
 				func()
 			end
 		end
@@ -275,7 +275,7 @@ local function CreateRadialMenu(options_arg, bAutoClose)
 		vecXY.x = x
 		vecXY.y = y
 		local deg = (vecXY:GetNormalized() - vecDown):Angle()
-		//deg[2] = deg[2] - 180
+		--deg[2] = deg[2] - 180
 		deg = math.NormalizeAngle((deg[2] - 180) * 2) + 180
 		
 		local options = {}
@@ -320,7 +320,7 @@ local function CreateRadialMenu(options_arg, bAutoClose)
 
 					if paining then
 						math.randomseed(math.Round(CurTime() / 5 + num + i, 0))
-						opt = ""//hg.get_status_message(ply)
+						opt = ""--hg.get_status_message(ply)
 						math.randomseed(os.time())
 					end
 

@@ -86,7 +86,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 		--=\\
 			bullet.Force = bullet.Force or 1
 			bullet.AmmoForce = bullet.AmmoForce or game.GetAmmoForce(bullet.AmmoID)	--; ????????????????????
-		--=//
+		--==//
 
 		local hg_ammo_table = hg.ammotypeshuy[game.GetAmmoName(bullet.AmmoID)] or game.GetAmmoData(bullet.AmmoID)
 		hg_ammo_table = hg_ammo_table or {}
@@ -103,7 +103,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 			bullet.TracerSetings = bullet.TracerSetings or hg_ammo_table.TracerSetings or {}
 			bullet.TracerSetings.MaxPathPoints = bullet.TracerSetings.MaxPathPoints or 5
 			bullet.FunctionInfo = bullet.FunctionInfo or hg_ammo_table.FunctionInfo or {}
-		--=//
+		--==//
 
 		--=\\Functions Overrides
 			bullet.Draw = hg_ammo_table.BulletFunctions.Draw or bullet.Draw
@@ -115,7 +115,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 			bullet.PostPenetration = hg_ammo_table.BulletFunctions.PostPenetration or bullet.PostPenetration
 			bullet.OnStopped = hg_ammo_table.BulletFunctions.OnStopped or bullet.OnStopped
 			bullet.AddPathPoint = hg_ammo_table.BulletFunctions.AddPathPoint or bullet.AddPathPoint
-		--=//
+		--==//
 
 		if(bullet.Vel == nil)then
 			bullet.StartLen = (bullet.Speed or hg_ammo_table.Speed or 320) * 52.5 * math.Rand(0.9, 1.1)
@@ -367,7 +367,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 				-- local drift_vec = Vector(util.SharedRandom("x" .. self.Key, -drift, drift, CurTime()), util.SharedRandom("y" .. self.Key, -drift, drift, CurTime()), util.SharedRandom("z" .. self.Key, -drift, drift, CurTime()))
 				-- self:ApplyForceCenter(drift_vec)
 			--==//
-		--=//
+		--==//
 		
 		local len = self.Vel:Length()
 		self.DistanceTraveled = self.DistanceTraveled + len * interval
@@ -406,7 +406,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 			len = len - math.min(resist_mul * interval * len * len, len)
 		--==//
 		
-		--=//
+		--==//
 		
 		if(hg.IsChanged(self.Size, "Size", self))then
 			local size = self.Size / 2
@@ -520,7 +520,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 						if(CLIENT)then
 							self:AddPathPoint(self.Pos)
 						end
-					--=//
+					--==//
 					
 					goto phys_bullets_continue
 				end
@@ -536,7 +536,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 				if(CLIENT)then
 					self:AddPathPoint(self.Pos)
 				end
-			--=//
+			--==//
 			
 			--=\\Damage Trace
 				if(SERVER and IsValid(trace.Entity))then
@@ -573,7 +573,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 						end
 					end
 				end
-			--=//
+			--==//
 			
 			if(trace_hit)then
 				if(SERVER and not trace.StartSolid)then
@@ -678,7 +678,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 					
 					render.EndBeam()
 				end
-			--=//
+			--==//
 		end
 		
 		function PLUGIN.Class_Bullet:AddPathPoint(pos)
@@ -956,7 +956,7 @@ PLUGIN.Bullet_StandartMask = MASK_SHOT
 					end
 				end
 			end
-		--=//
+		--==//
 		
 		local ricochet_frac = (90 - ang_diff) / 90
 		local new_vel_normal = nil

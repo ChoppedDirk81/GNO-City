@@ -224,10 +224,10 @@ function hg.GenerateLoot(ply,ent,func)
 	
 	Tab = "Weapons"
 	
-	//ply.Profession == "doctor"
-	//ply.Profession == "engineer"
-	//ply.Profession == "huntsman"
-	//ply.Profession == "cook"
+	--ply.Profession == "doctor"
+	--ply.Profession == "engineer"
+	--ply.Profession == "huntsman"
+	--ply.Profession == "cook"
 	
 	local tab = curRound.GetLootTable and curRound:GetLootTable()
 	
@@ -608,9 +608,9 @@ local vec = Vector(0, 0, 64)
 local vec_dist = Vector(500,500,500)
 hook.Add("Boxes Think", "SpawnBoxes", function()
 	if zb.ROUND_STATE ~= 1 or not CurrentRound().LootSpawn then return end
-	//local spawnPos = table.Random(spawns) + vec
+	--local spawnPos = table.Random(spawns) + vec
 
-	//local spawnPos = zb:FurthestFromEveryone(spawns) + vec
+	--local spawnPos = zb:FurthestFromEveryone(spawns) + vec
 	local tbl = player.GetAll()
 	local ply = tbl[math.random(#tbl)]
 	
@@ -695,7 +695,7 @@ hook.Add("Boxes Think", "SpawnBoxes", function()
 	end
 
 	local entName, AmmoCount, Tab = hg.GenerateLoot()
-	//print(entName)
+	--print(entName)
 	if not entName or entName == "" then return end
 
 	local huy = ents.Create(entName)

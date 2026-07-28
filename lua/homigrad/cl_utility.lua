@@ -378,9 +378,9 @@ players : 1 humans, 0 bots (20 max)
 			if force > 0 then
 				render.UpdateScreenEffectTexture()
 
-				vignetteMat:SetFloat("$c2_x", CurTime() + 10000) //Time
-				vignetteMat:SetFloat("$c0_z", force / 3 ) //ColorIntensity
-				vignetteMat:SetFloat("$c1_y", force / 12 ) //Vignette
+				vignetteMat:SetFloat("$c2_x", CurTime() + 10000) --Time
+				vignetteMat:SetFloat("$c0_z", force / 3 ) --ColorIntensity
+				vignetteMat:SetFloat("$c1_y", force / 12 ) --Vignette
 
 				render.SetMaterial(vignetteMat)
 				render.DrawScreenQuad()
@@ -433,8 +433,8 @@ players : 1 humans, 0 bots (20 max)
 				--print(ent, CurTime())
 				local ply = ent:IsPlayer() and ent or IsValid(ent.ply) and ent.ply
 				-- limiter
-				//if (ent.lasttimethink or 0) > CurTime() then continue end
-				//ent.lasttimethink = CurTime() + (ply and ply == lply and 0 or 0.1)
+				--if (ent.lasttimethink or 0) > CurTime() then continue end
+				--ent.lasttimethink = CurTime() + (ply and ply == lply and 0 or 0.1)
 
 				if ply and ply:IsPlayer() and ply:Alive() then
 					hook_Run("Player Think", ply, time, dtime)
@@ -1030,7 +1030,7 @@ players : 1 humans, 0 bots (20 max)
 			DrawColorModify(tab)
 		end
 
-		//amtflashed = math.max(amtflashed - math.ease.InOutCubic(math.max(0, math.sin(CurTime() * 1) - 0.6) / 0.4),0)
+		--amtflashed = math.max(amtflashed - math.ease.InOutCubic(math.max(0, math.sin(CurTime() * 1) - 0.6) / 0.4),0)
 
 		for i = 1, #hg.flashes do
 			flash = hg.flashes[i]

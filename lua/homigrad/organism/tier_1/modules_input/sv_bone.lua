@@ -8,7 +8,7 @@ local function damageBone(org, bone, dmg, dmgInfo, key, boneindex, dir, hit, ric
 	local crush = isCrush(dmgInfo)
 	
 	if dmgInfo:IsDamageType(DMG_SLASH) and dmg > 1.5 then
-		//crush = false
+		--crush = false
 	end
 	
 	dmg = dmg * (dmgInfo:GetInflictor().BreakBoneMul or 1)
@@ -104,9 +104,9 @@ local function legs(org, bone, dmg, dmgInfo, key, boneindex, dir, hit, ricochet)
 
 		timer.Simple(0, function() hg.LightStunPlayer(org.owner,2) end)
 		org.owner:EmitSound("bones/bone"..math.random(8)..".mp3", 75, 100, 1, CHAN_AUTO)
-		//broken
+		--broken
 	else
-		//org[key] = 0.5
+		--org[key] = 0.5
 		org[key.."dislocation"] = true
 
 		org.painadd = org.painadd + 35
@@ -118,7 +118,7 @@ local function legs(org, bone, dmg, dmgInfo, key, boneindex, dir, hit, ricochet)
 
 		timer.Simple(0, function() hg.LightStunPlayer(org.owner,2) end)
 		org.owner:EmitSound("bones/bone"..math.random(8)..".mp3", 75, 100, 1, CHAN_AUTO)
-		//dislocated
+		--dislocated
 	end
 
 	hg.AddHarmToAttacker(dmgInfo, (org[key] - oldDmg) * 2, "Legs bone damage harm")
@@ -160,10 +160,10 @@ local function arms(org, bone, dmg, dmgInfo, key, boneindex, dir, hit, ricochet)
 
 		--timer.Simple(0, function() hg.LightStunPlayer(org.owner,1) end)
 		org.owner:EmitSound("bones/bone"..math.random(8)..".mp3", 75, 100, 1, CHAN_AUTO)
-		//broken
+		--broken
 	else
 		org[key.."dislocation"] = true
-		//org[key] = 0.5
+		--org[key] = 0.5
 
 		org.painadd = org.painadd + 35
 		org.owner:AddNaturalAdrenaline(0.5)
@@ -173,7 +173,7 @@ local function arms(org, bone, dmg, dmgInfo, key, boneindex, dir, hit, ricochet)
 
 		--timer.Simple(0, function() hg.LightStunPlayer(org.owner,1) end)
 		org.owner:EmitSound("bones/bone"..math.random(8)..".mp3", 75, 100, 1, CHAN_AUTO)
-		//dislocated
+		--dislocated
 	end
 
 	hg.AddHarmToAttacker(dmgInfo, (org[key] - oldDmg) * 1.5, "Arms bone damage harm")
@@ -238,7 +238,7 @@ local jaw_dislocated_msg = {
 	"I CAN'T CLOSE MY JAW... IT FUCKING HURTS",
 	"MY JAW... ITS JUST STUCK THERE-- OH ITS PAINING",
 	"I CANT MOVE MY JAW AT ALL... AND ITS REALLY ACHING",
-	//"I CANT EVEN SPEAK, I NEED TO PUNCH IT BACK IN PLACE... BUT IT HURTS REAL BAD",
+	--"I CANT EVEN SPEAK, I NEED TO PUNCH IT BACK IN PLACE... BUT IT HURTS REAL BAD",
 }
 
 local input_list = hg.organism.input_list
@@ -343,7 +343,7 @@ input_list.skull = function(org, bone, dmg, dmgInfo, boneindex, dir, hit, ricoch
 
 	if org.skull == 1 then
 		if org.isPly then
-			//org.owner:Notify(huyasd["skull"],true,"skull",4)
+			--org.owner:Notify(huyasd["skull"],true,"skull",4)
 		end
 
 		--[[if dir then
@@ -384,7 +384,7 @@ input_list.chest = function(org, bone, dmg, dmgInfo, boneindex, dir, hit, ricoch
 		org.brokenribs = math.Round(org.chest * 3)
 		
 		if org.brokenribs > 0 then
-			//org.owner:Notify(ribs[math.random(#ribs)], 5, "ribs", 4)
+			--org.owner:Notify(ribs[math.random(#ribs)], 5, "ribs", 4)
 
 			org.owner:EmitSound("bones/bone"..math.random(8)..".mp3", 75, 100, 1, CHAN_AUTO)
 
@@ -405,7 +405,7 @@ input_list.pelvis = function(org, bone, dmg, dmgInfo, boneindex, dir, hit, ricoc
 	hg.AddHarmToAttacker(dmgInfo, (org.pelvis - oldDmg) / 2, "Pelvis bone damage harm")
 
 	if org.isPly and org.pelvis == 1 then
-		//org.owner:Notify("My pelvis is agonizingly hurting.", true, "pelvis", 4)
+		--org.owner:Notify("My pelvis is agonizingly hurting.", true, "pelvis", 4)
 	end
 
 	return result

@@ -1,5 +1,5 @@
 
--- // new blood
+-- -- new blood
 
 game.AddDecal("Normal.Blood21", {
     "effects/droplets/drop1_1",
@@ -86,7 +86,7 @@ game.AddDecal("Arterial.Blood25", {
     "effects/droplets/drop12_5",
 })
 
--- // old blood
+-- -- old blood
 
 game.AddDecal("Normal.Blood1", {
     "decals/z_blood1",
@@ -114,7 +114,7 @@ game.AddDecal("Arterial.Blood1", {
     "decals/arterial_blood10",
 })
 
--- // head'n shoulders
+-- -- head'n shoulders
 
 game.AddDecal("Water.Blood", "effects/smoke_b")
 

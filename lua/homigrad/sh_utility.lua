@@ -336,9 +336,9 @@ hg.ConVars = hg.ConVars or {}
 		end
 	end
 --//
-//for i, ply in ipairs(player.GetAll()) do
-//	hg.tpPlayer(Vector(44.917309, 1.110850, -82.409622), ply, i, 0)
-//end
+--for i, ply in ipairs(player.GetAll()) do
+--	hg.tpPlayer(Vector(44.917309, 1.110850, -82.409622), ply, i, 0)
+--end
 
 --\\ Vector/Angle clamp function
 	function hg.clamp(vecOrAng, val)
@@ -359,7 +359,7 @@ hg.ConVars = hg.ConVars or {}
 	end
 --//
 --\\ nocollide player
-	function ActivateNoCollision(target, min) // gmodwiki my beloved
+	function ActivateNoCollision(target, min) -- gmodwiki my beloved
 		if !IsValid(target) then return end
 
 		local oldCollision = target:GetCollisionGroup()
@@ -383,7 +383,7 @@ hg.ConVars = hg.ConVars or {}
 						tooNearPlayer = true
 					end
 				end
-				//print(target, penetrating, tooNearPlayer, target:GetCollisionGroup())
+				--print(target, penetrating, tooNearPlayer, target:GetCollisionGroup())
 
 				if (!penetrating and !tooNearPlayer) or i >= (math.Round(time / checkdtime) - 1) then
 					if target:GetCollisionGroup() == COLLISION_GROUP_PASSABLE_DOOR then -- if it somehow changed, we shouldn't touch it
@@ -642,13 +642,13 @@ local IsValid = IsValid
 		if ent:GetMaterial() == "NULL" then ent:DrawShadow( false ) return end
 		if not IsValid(ent) then return end
 
-		--local drawornot = hook_Run("PreDrawPlayer2", ent, self) // true means nodraw
+		--local drawornot = hook_Run("PreDrawPlayer2", ent, self) -- true means nodraw
 		--if drawornot then return end
 
 		DrawPlayerRagdoll(ent, self)
 		RenderAccessoriesCool(ent, self)
 		hook_Run("CoolPostDrawAppearance", ent, self)
-		//hg.HomigradBones(self, CurTime(), FrameTime())
+		--hg.HomigradBones(self, CurTime(), FrameTime())
 
 		if IsValid(self.OldRagdoll) then DrawAppearance(ent, self, true) end
 		if !hg.converging[self] then
@@ -733,8 +733,8 @@ local IsValid = IsValid
 	local util_TraceHull = util.TraceHull
 
 	function hg.hullCheck(startpos, endpos, ply)
-		//if ply.lasthulltrace == CurTime() and ply.cachedhulltrace then return ply.cachedhulltrace end
-		//ply.lasthulltrace = CurTime()
+		--if ply.lasthulltrace == CurTime() and ply.cachedhulltrace then return ply.cachedhulltrace end
+		--ply.lasthulltrace = CurTime()
 		if ply:InVehicle() then return {HitPos = endpos} end
 		traceBuilder.start = IsValid(ply.FakeRagdoll) and endpos or startpos
 		traceBuilder.endpos = endpos
@@ -759,14 +759,14 @@ local IsValid = IsValid
 
 		local aim_vector = aim_vector or ply:GetAimVector()
 
-		local pos, ang = LocalToWorld(lpos, lang, mat:GetTranslation(), mat:GetAngles())// aim_vector:Angle())
+		local pos, ang = LocalToWorld(lpos, lang, mat:GetTranslation(), mat:GetAngles())-- aim_vector:Angle())
 
 		return hg.eyeTrace(ply, dist, ent, aim_vector, pos)
 	end
 
 	function hg.eye(ply, dist, ent, aimvec, startpos)
 		if !ply:IsPlayer() then return false end
-		local fakeCam = false//IsValid(ent) and ent != ply
+		local fakeCam = false--IsValid(ent) and ent != ply
 		local ent = (IsValid(ent) and ent) or (IsValid(ply.FakeRagdoll) and ply.FakeRagdoll) or ply
 		local bon = ent:LookupBone("ValveBiped.Bip01_Neck1")
 		if not bon then return end
@@ -781,7 +781,7 @@ local IsValid = IsValid
 				endpos = ply:EyePos() + aim_vector * (dist or 60),
 				filter = ply
 			}
-			return ply:EyePos(), aim_vector * (dist or 60), ply//util.TraceLine(tr)
+			return ply:EyePos(), aim_vector * (dist or 60), ply--util.TraceLine(tr)
 		end
 
 		/*if (ply.InVehicle and ply:InVehicle() and IsValid(ply:GetVehicle())) then
@@ -797,10 +797,10 @@ local IsValid = IsValid
 
 		local headm = ent:GetBoneMatrix(bon)
 
-		//if CLIENT and IsValid(ply.OldRagdoll) then
-		//	headm = ply.headm or headm
-		//end
-		//ply.headm = nil
+		--if CLIENT and IsValid(ply.OldRagdoll) then
+		--	headm = ply.headm or headm
+		--end
+		--ply.headm = nil
 		--local att_ang = ply:GetAttachment(ply:LookupAttachment("eyes")).Ang
 		--ply.lerp_angle = LerpFT(0.1, ply.lerp_angle or Angle(0,0,0), ply:GetNWBool("TauntStopMoving", false) and att_ang or aim_vector:Angle())
 		--aim_vector = ply.lerp_angle:Forward()
@@ -812,7 +812,7 @@ local IsValid = IsValid
 		--eyeang2.p = 0
 		eyeang2.r = isangle(aimvec) and aimvec.r or ply:EyeAngles().r
 
-		//local pos = startpos or headm:GetTranslation() + (fakeCam and (headm:GetAngles():Forward() * 5 + headm:GetAngles():Up() * 0 + headm:GetAngles():Right() * 6) or (eyeAng:Up() * 1 + eyeang2:Forward() * 4))
+		--local pos = startpos or headm:GetTranslation() + (fakeCam and (headm:GetAngles():Forward() * 5 + headm:GetAngles():Up() * 0 + headm:GetAngles():Right() * 6) or (eyeAng:Up() * 1 + eyeang2:Forward() * 4))
 		local pos = startpos or headm:GetTranslation() + (fakeCam and (headm:GetAngles():Forward() * 2 + headm:GetAngles():Up() * -2 + headm:GetAngles():Right() * 3) or (eyeAng:Up() * 2 + headm:GetAngles():Right() * 4 + headm:GetAngles():Up() * 0  + headm:GetAngles():Forward() * (4 + (ply.PlayerClassName == "Combine" and 4 or 0))))
 
 		local trace = hg.hullCheck(ply:EyePos() - vector_up * 10, pos, ply)
@@ -823,12 +823,12 @@ local IsValid = IsValid
 			cam.End3D()
 		end--]]
 
-		//local tr = {}
-		//tr.start = trace.HitPos
-		//tr.endpos = tr.start + aim_vector * (dist or 60)
-		//tr.filter = {ply,ent}
+		--local tr = {}
+		--tr.start = trace.HitPos
+		--tr.endpos = tr.start + aim_vector * (dist or 60)
+		--tr.filter = {ply,ent}
 
-		return trace.HitPos, aim_vector * (dist or 60), {ply, ent, ply.OldRagdoll}, trace, headm//util.TraceLine(tr), trace, headm
+		return trace.HitPos, aim_vector * (dist or 60), {ply, ent, ply.OldRagdoll}, trace, headm--util.TraceLine(tr), trace, headm
 	end
 
 	function hg.eyeTrace(ply, dist, ent, aim_vector, startpos, fFilter)
@@ -1386,7 +1386,7 @@ local IsValid = IsValid
 			end
 			bullet.AmmoType = tbl.AmmoType or bullet.AmmoType
 			if bullet.AmmoType then 
-				bullet.Damage = (hg.ammotypeshuy[bullet.AmmoType] and hg.ammotypeshuy[bullet.AmmoType].BulletSettings.Damage or game.GetAmmoPlayerDamage(game.GetAmmoID(bullet.AmmoType)))// * npcs[ent:GetClass()].multi
+				bullet.Damage = (hg.ammotypeshuy[bullet.AmmoType] and hg.ammotypeshuy[bullet.AmmoType].BulletSettings.Damage or game.GetAmmoPlayerDamage(game.GetAmmoID(bullet.AmmoType)))-- * npcs[ent:GetClass()].multi
 				bullet.Force = (hg.ammotypeshuy[bullet.AmmoType] and hg.ammotypeshuy[bullet.AmmoType].BulletSettings.Force or game.GetAmmoPlayerDamage(game.GetAmmoID(bullet.AmmoType))) * (npcs[ent:GetClass()].force or 1)
 				bullet.Penetration = (hg.ammotypeshuy[bullet.AmmoType] and hg.ammotypeshuy[bullet.AmmoType].BulletSettings.Penetration or game.GetAmmoPlayerDamage(game.GetAmmoID(bullet.AmmoType))) * (npcs[ent:GetClass()].PenetrationMul or 1)
 			end

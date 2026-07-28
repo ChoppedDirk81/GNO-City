@@ -302,7 +302,7 @@ end)
 
 hook.Add("PlayerDeathThink", "spectNetwork", function(ply)
 	if ply:Alive() then return end
-	//ply:Spectate(OBS_MODE_ROAMING)
+	--ply:Spectate(OBS_MODE_ROAMING)
 
 	local ent = ply.chosenSpectEntity or player.GetAll()[1]
 	if IsValid(ply) then

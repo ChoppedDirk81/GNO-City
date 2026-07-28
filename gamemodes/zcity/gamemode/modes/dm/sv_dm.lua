@@ -19,7 +19,7 @@ util.AddNetworkString("dm_start")
 util.AddNetworkString("dm_end")
 
 function MODE:CanLaunch()
-    return true//(zb.GetWorldSize() >= ZBATTLE_BIGMAP)
+    return true--(zb.GetWorldSize() >= ZBATTLE_BIGMAP)
 end
 
 function MODE:Intermission()

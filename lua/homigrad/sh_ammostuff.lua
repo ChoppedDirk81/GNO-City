@@ -225,7 +225,7 @@ hook.Add("Think", "APScheduledExplosions", function()	--; AimPoint Mr.Point
 		end
 	end
 end)
---=//
+--==//
 
 --=\\Explosive Projectile
 local function draw_explosive(self)
@@ -326,7 +326,7 @@ local function onstopped_explosive(self, last_unsure_penetration_pos, reason, tr
 		end
 	end
 end
---=//
+--==//
 --//
 
 --
@@ -1143,7 +1143,7 @@ hg.ammotypes = {
 			ShellColor = Color(255,185,0)
 		}
 	},
-	["20/70gauge"] = { //потом другие добавлю
+	["20/70gauge"] = { --потом другие добавлю
 		name = "20/70 gauge",
 		allowed = true,
 		--dmgtype = DMG_BUCKSHOT,

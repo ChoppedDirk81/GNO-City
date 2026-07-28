@@ -77,7 +77,7 @@ PLUGIN.SilkTableClient = PLUGIN.SilkTableClient or {}
 					local side_resist = resist * segment.Trebble
 					resist = resist - side_resist
 					vel_len = vel_len - resist
-				--=//
+				--==//
 				
 				segment.Vel = vel_dir * vel_len
 				
@@ -91,7 +91,7 @@ PLUGIN.SilkTableClient = PLUGIN.SilkTableClient or {}
 						
 						segment.Vel = segment.Vel + vel_ang_copy:Forward() * segment.Trebble * side_resist
 					end
-				--=//
+				--==//
 				
 				local move_vel = segment.Vel * interval
 				
@@ -234,7 +234,7 @@ PLUGIN.SilkTableClient = PLUGIN.SilkTableClient or {}
 				Trebble = trebble or 0.6,
 			}
 		end
-	--=//
+	--==//
 --//
 
 --\\Creation

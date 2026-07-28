@@ -1719,7 +1719,7 @@ hook.Add("Org Think", "BodyTemperature", function(owner, org, timeValue) -- пе
 
 	org.heatbuff = math.Approach(org.heatbuff, 120 * MaxWarmMul, timeValue * math.Clamp(warming * 1, 0, 4))
 
-	//PrintTable(ents.FindInSphere(org.owner:GetPos(), 128))
+	--PrintTable(ents.FindInSphere(org.owner:GetPos(), 128))
 	--мб сделать тепло от env_sprite?
 	--hz...
 	--дороговато

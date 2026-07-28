@@ -632,8 +632,8 @@ function hg.SelectPlayerRole(role, mode)
 	end
 
 	if(MODE.RoleChooseRoundTypes[mode])then
-		//VGUI_HMCD_RolePanelList = vgui.Create("ZB_TraitorSelectionMenu")
-		//VGUI_HMCD_RolePanelList:Center()
+		--VGUI_HMCD_RolePanelList = vgui.Create("ZB_TraitorSelectionMenu")
+		--VGUI_HMCD_RolePanelList:Center()
 		VGUI_HMCD_RolePanelList = vgui.Create("HMCD_RolePanelList")
 		VGUI_HMCD_RolePanelList.RolesIDsList = MODE.RoleChooseRoundTypes[mode][role]	--; WARNING TCP Reroute
 		VGUI_HMCD_RolePanelList.Mode = mode

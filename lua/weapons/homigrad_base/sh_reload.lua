@@ -130,7 +130,7 @@ function SWEP:Step_Reload(time)
 		--print(self.StaminaReloadTime)
 		local shouldalreadyreload
 		if SERVER then
-			//shouldalreadyreload = self:ReloadSounds(part)
+			--shouldalreadyreload = self:ReloadSounds(part)
 			self:ReloadSounds(part)
 		end
 
@@ -140,11 +140,11 @@ function SWEP:Step_Reload(time)
 			if self.GetDebug then
 				self:GetOwner():PrintMessage( 4,tostring(time) )
 			end
-			//local nextTimeEvent = self.FakeReloadEventsMap[self.countevent]
-			//local event = self.FakeReloadEvents[nextTimeEvent]
+			--local nextTimeEvent = self.FakeReloadEventsMap[self.countevent]
+			--local event = self.FakeReloadEvents[nextTimeEvent]
 			local event = self.FakeReloadEvents[time]
 			--print(self.FakeReloadEvents[time])
-			//if event and nextTimeEvent < time and self.FakeEventPlayed ~= event then
+			--if event and nextTimeEvent < time and self.FakeEventPlayed ~= event then
 			if event and self.FakeEventPlayed ~= event then
 				event( self, self.StaminaReloadMul )
 				self.FakeEventPlayed = event

@@ -96,7 +96,7 @@ function Camera:Deactivate()
 
     if IsValid( self.user ) then
         self.user:SetDSP( 1 )
-        //self.user:SetEyeAngles( Angle() )
+        --self.user:SetEyeAngles( Angle() )
     end
 
     self.isActive = false
@@ -431,7 +431,7 @@ function Camera:CalcView()
 end
 
 function Camera:CreateMove( cmd )
-    //cmd:SetViewAngles( self.viewAngles )
+    --cmd:SetViewAngles( self.viewAngles )
 end
 
 function Camera:InputMouseApply( tbl )
