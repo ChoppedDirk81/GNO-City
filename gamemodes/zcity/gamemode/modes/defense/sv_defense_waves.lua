@@ -31,6 +31,16 @@ local defenseSpawnStepDelay = 0.8
     return npc
  end
 
+local function GetValidPlayers()
+    local validPlayers = {}
+    for _, ply in player.Iterator() do
+        if IsValid(ply) and ply:Alive() and ply:Team() ~= TEAM_SPECTATOR then
+            validPlayers[#validPlayers+1] = ply
+        end
+    end
+    return validPlayers
+end
+
 function MODE:IsSpawnVisibleToAnyPlayer(spawnPos)
     local targetPos = spawnPos + Vector(0, 0, 48)
 
@@ -178,21 +188,28 @@ end
 
 function MODE:AssignNPCTarget(npc)
     if not IsValid(npc) then return end  
-    local function GetValidPlayers()
-        local validPlayers = {}
-        for _, ply in player.Iterator() do
-            if IsValid(ply) and ply:Alive() and ply:Team() ~= TEAM_SPECTATOR then
-                table.insert(validPlayers, ply)
-            end
-        end
-        return validPlayers
-    end
 
     local validPlayers = GetValidPlayers()
     if #validPlayers == 0 then return end  
 
-    local targetPlayer = validPlayers[math.random(#validPlayers)]  
+    local targetPlayer = validPlayers[math.random(#validPlayers)]
     npc:UpdateEnemyMemory(targetPlayer, targetPlayer:GetPos())  
+    --npc:SetTarget(targetPlayer)
+end
+
+function MODE:SNITCH(npc)
+    if not IsValid(npc) then return end  
+
+    local validPlayers = GetValidPlayers()
+    if #validPlayers == 0 then return end
+
+    for _, targetPlayer in pairs(validPlayers) do
+        npc:UpdateEnemyMemory(targetPlayer, targetPlayer:GetPos())  
+    end
+    --[[
+    local targetPlayer = validPlayers[math.random(#validPlayers)]
+    npc:SetTarget(targetPlayer)
+    ]]
 end
 
 function MODE:StartNewWave()
@@ -400,6 +417,9 @@ function MODE:SpawnWave()
                    (queuedNpcDef.type == "npc_combine_s" or queuedNpcDef.type == "npc_metropolice") then
                     npc:Give(queuedNpcDef.weapon)
                 end
+
+                npc:SetMaxLookDistance(5500)
+                self:SNITCH(npc)
             end
 
             if not IsValid(npc) then 
