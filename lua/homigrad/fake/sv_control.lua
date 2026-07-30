@@ -411,7 +411,7 @@ hook.Add("Think", "Fake", function()
 					end
 
 					if hg_fake_stamina:GetBool() then
-						org.stamina.subadd = org.stamina.subadd + 0.05 * (ragdoll.staminaRightModifyer or 0.5) * (on_ground and 0.25 or 1)
+						org.stamina.subadd = org.stamina.subadd + 0.05 * (ragdoll.staminaRightModifyer or 0.5) * (on_ground and 0.25 or 0.75)
 					end
 				end
 
@@ -433,7 +433,7 @@ hook.Add("Think", "Fake", function()
 					end
 
 					if hg_fake_stamina:GetBool() then
-						org.stamina.subadd = org.stamina.subadd + 0.05 * (ragdoll.staminaLeftModifyer or 0.5) * (on_ground and 0.25 or 1)
+						org.stamina.subadd = org.stamina.subadd + 0.05 * (ragdoll.staminaLeftModifyer or 0.5) * (on_ground and 0.25 or 0.75)
 					end
 				end
 			end
@@ -548,7 +548,7 @@ hook.Add("Think", "Fake", function()
 			if ply:KeyDown(IN_SPEED) and org.canmove and !org.larmamputated and (!ply.HandsStun or ply.HandsStun < CurTime()) then
 				if IsValid(ragdoll.ConsLH) then
 					if hg_fake_stamina:GetBool() then
-						org.stamina.subadd = org.stamina.subadd + 0.06 * (ragdoll.staminaLeftModifyer or 0.5) * ( IsValid(ragdoll.ConsRH) and 0.35 or 1.25) * (on_ground and 0.25 or 1)
+						org.stamina.subadd = org.stamina.subadd + 0.06 * (ragdoll.staminaLeftModifyer or 0.5) * ( IsValid(ragdoll.ConsRH) and 0.35 or 1.25) * (on_ground and 0.25 or 0.1) -- Semantically, when we're not climbing, grabbing only consumes 1/4 of the stamina that it should. We are going to cut the "normal" drain by half.
 					end
 					
 					local ent2 = ragdoll.ConsLH.Ent2
@@ -637,7 +637,7 @@ hook.Add("Think", "Fake", function()
 			if ply:KeyDown(IN_WALK) and org.canmove and !(ishgweapon(wep) or wep.ismelee2) and !org.rarmamputated and (!ply.HandsStun or ply.HandsStun < CurTime()) then
 				if IsValid(ragdoll.ConsRH) then
 					if hg_fake_stamina:GetBool() then
-						org.stamina.subadd = org.stamina.subadd + 0.06 * (ragdoll.staminaRightModifyer or 0.5) * ( IsValid(ragdoll.ConsLH) and 0.35 or 1.25) * (on_ground and 0.25 or 1)
+						org.stamina.subadd = org.stamina.subadd + 0.06 * (ragdoll.staminaRightModifyer or 0.5) * ( IsValid(ragdoll.ConsLH) and 0.35 or 1.25) * (on_ground and 0.25 or 0.1) -- Semantically, when we're not climbing, grabbing only consumes 1/4 of the stamina that it should. We are going to cut the "normal" drain by half.
 					end
 					
 					local ent2 = ragdoll.ConsRH.Ent2
