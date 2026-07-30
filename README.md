@@ -1,7 +1,7 @@
 # GNO-City
 Z-City is a GMod addon which modifies character damage and controls. GNO-CITY is an edited version thereof.
 
-Current version: 1.0.0
+Current version: 1.0.1
 
 ## The numbers in the version number indicate:
 A.Bcc -> 1.000
